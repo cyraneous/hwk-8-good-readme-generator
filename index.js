@@ -67,14 +67,23 @@ const questions = [
         if (err){
           console.log(err);
         }
-
+        else {
+            console.log("Your Title has been Generated");
+        }
 
 
     })
 
-      }
+    fs.appendFileSync("README.md", ("## " + "Description" + "\n" + input.description) + "\n" + "\n", function(err){
+        if (err) {
+          console.log(err)
+        } else {
+          console.log("success")
+        }
 
+    })
 
+    fs.appendFileSync("README.md",) ("## " + "Table of Contents" + "\n" + "* " + "[Installation](#installation)" + "\n" + "* " + "[License](license)" + "\n" + "*")
 
 
 
