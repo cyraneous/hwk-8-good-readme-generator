@@ -1,116 +1,79 @@
-var inquirer = require("inquirer"); //inquirer called
-var fs = require("fs");
-const markDown = require("./generateMarkdown"); //find markdown
-//questions that will be asked
+// Declaring the dependencies and variables
+const fs = require("fs");
+const util = require("util");
+const inquirer = require("inquirer");
+const generateReadme = require("./utils/generateReadme");
+const writeFileAsync = util.promisify(fs.writeFile);
 
-const questions = [
+//Prompt the user questions to populate the README.md
+function promptUser() {
+  return inquirer.prompt([
     {
       type: "input",
-      name: "username",
-      message: "What is your GitHub username?",
-    },
-    {
-      type: "input",
-      name: "email",
-      message: "What is your email?",
-    },
-    {
-      type: "input",
-      name: "URL",
-      message: "What is the URL of your project?",
-    },
-    {
-      type: "input",
-      name: "Title",
-      message: "What is your project title?",
+      name: "projectTitle",
+      message: "What is the project title?",
     },
     {
       type: "input",
       name: "description",
-      message: "What is your project description?",
+      message: "Write a brief description of your project: ",
     },
     {
       type: "input",
       name: "installation",
-      message: "What are the steps to install your app?",
+      message: "Describe the installation process if any: ",
     },
     {
       type: "input",
       name: "usage",
-      message: "How will this application be used?",
+      message: "What is this project usage for?",
     },
     {
       type: "list",
-      message: "What license will you use?",
       name: "license",
-      choices: [ "MIT", "BSD", "AGPL",]
+      message: "Chose the appropriate license for this project: ",
+      choices: ["Apache", "Academic", "GNU", "ISC", "MIT", "Mozilla", "Open"],
     },
     {
       type: "input",
-      message: "Contributors?",
       name: "contributing",
+      message: "Who are the contributors of this projects?",
     },
     {
       type: "input",
       name: "tests",
-      message: "Please provide an example of how to run your app.",
+      message: "Is there a test included?",
     },
+    {
+      type: "input",
+      name: "questions",
+      message: "What do I do if I have an issue? ",
+    },
+    {
+      type: "input",
+      name: "username",
+      message: "Please enter your GitHub username: ",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Please enter your email: ",
+    },
+  ]);
+}
 
-  ]
-
-  function init() {
-    // arrow function appends user input into readme
-      inquirer.prompt(questions).then|(input) => {
-
-    fs.appendFileSync("README.md", ("#" + input.title)+ "\n" + "\n", function(err) {
-
-        if (err){
-          console.log(err);
-        }
-        else {
-            console.log("Your Title has been Generated");
-        }
-
-
-    })
-
-    fs.appendFileSync("README.md", ("## " + "Description" + "\n" + input.description) + "\n" + "\n", function(err){
-        if (err) {
-          console.log(err)
-        } else {
-          console.log("success")
-        }
-
-    })
-
-    fs.appendFileSync("README.md",) ("## " + "Table of Contents" + "\n" + "* " + "[Installation](#installation)" + "\n" + "* " + "[License](license)" + "\n" + "*")
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-
-
-
-
-promptUser()
-  .then(function (answers) {
-    const html = generateHTML(answers);
-
-    return writeFileAsync("index.html", html);
-  })
-  .then(function () {
-    console.log("Successfully wrote to index.html");
-  })
-  .catch(function (err) {
+// Async function using util.promisify
+async function init() {
+  try {
+    // Ask user questions and generate responses
+    const answers = await promptUser();
+    const generateContent = generateReadme(answers);
+    // Write new README.md to dist directory
+    await writeFileAsync("./dist/README.md", generateContent);
+    console.log("✔️  Successfully wrote to README.md");
+  } catch (err) {
     console.log(err);
-  });
+  }
+}
+
+init();
