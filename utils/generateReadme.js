@@ -1,12 +1,12 @@
 // generateReadme function populating the README.md
 function generateReadme(answers) {
   return `
-<h1 align="center">${answers.projectTitle} </h1>
+<h1 align="center">${answers.projectTitle} 👋</h1>
   
 ![badge](https://img.shields.io/badge/license-${answers.license}-brightgreen)<br />
 
 ## Description
- ${answers.description}
+  ${answers.description}
 
 ## Table of Contents
 - [Description](#description)
@@ -18,11 +18,10 @@ function generateReadme(answers) {
 - [Questions](#questions)
 
 ## Installation
- ${answers.installation}
+  ${answers.installation}
 
 ## Usage
-
- ${answers.usage}
+  ${answers.usage}
 
 ## License
 ![badge](https://img.shields.io/badge/license-${answers.license}-brightgreen)
@@ -42,6 +41,7 @@ This application is covered by the ${answers.license} license.
 <br />
   Email me with any questions: ${answers.email}<br /><br />
 
+`;
 }
 
 module.exports = generateReadme;
