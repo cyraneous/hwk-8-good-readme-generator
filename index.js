@@ -1,4 +1,4 @@
-// Declaring the dependencies and variables
+// Declaring the variables and dependencies
 const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");

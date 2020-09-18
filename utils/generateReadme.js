@@ -6,7 +6,7 @@ function generateReadme(answers) {
 ![badge](https://img.shields.io/badge/license-${answers.license}-brightgreen)<br />
 
 ## Description
-  ${answers.description}
+   ${answers.description}
 
 ## Table of Contents
 - [Description](#description)
