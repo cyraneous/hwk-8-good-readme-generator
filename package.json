@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Node app that creates ReadMe based on user inputs",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "\u0016echo \\\"Error: no test specified\\\" && exit 1"
