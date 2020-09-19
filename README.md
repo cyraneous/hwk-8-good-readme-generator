@@ -1,5 +1,3 @@
-# hwk-8-good-readme-generator
-
 Good ReadMe Generator
 
 https://github.com/cyraneous/hwk-8-good-readme-generator/src/Capture.JPG
@@ -16,7 +14,9 @@ AS A developer
 I WANT a README generator
 SO THAT can quickly create a professional README for a new project
 
-
 License: This project is licensed under the terms of the MIT license.
 
-![Alt-text](https://github.com/cyraneous/hwk-8-good-readme-generator/src/capture.JPG)
+![Alt-text](https://github.com/cyraneous/hwk-8-good-readme-generator/src/Capture.JPG)
+
+
+
