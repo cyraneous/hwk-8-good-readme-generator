@@ -19,4 +19,4 @@ SO THAT can quickly create a professional README for a new project
 
 License: This project is licensed under the terms of the MIT license.
 
-![Alt-text](https://github.com/cyraneous/hwk-8-good-readme-generator/src/Capture.JPG)
+![Alt-text](https://github.com/cyraneous/hwk-8-good-readme-generator/src/capture.JPG)
